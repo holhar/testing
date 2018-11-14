@@ -12,12 +12,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 public class ApplicationContextTests {
 
- @Autowired
- private ApplicationContext applicationContext;
+    @Autowired
+    private ApplicationContext applicationContext;
 
- @Test
- public void contextLoads() throws Throwable {
-  Assert.assertNotNull("the application context should have loaded.",
-   this.applicationContext);
- }
+    @Test
+    public void contextLoads() throws Throwable {
+        Assert.assertNotNull("the application context should have loaded.",
+                this.applicationContext);
+    }
 }

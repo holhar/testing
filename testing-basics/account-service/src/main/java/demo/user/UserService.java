@@ -15,21 +15,21 @@ import static org.springframework.http.RequestEntity.get;
 @Service
 public class UserService {
 
- private final String serviceHost;
+    private final String serviceHost;
 
- private final RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
- @Autowired
- public UserService(RestTemplate restTemplate,
-  @Value("${user-service.host:user-service}") String sh) {
-  this.serviceHost = sh;
-  this.restTemplate = restTemplate;
- }
+    @Autowired
+    public UserService(RestTemplate restTemplate,
+                       @Value("${user-service.host:user-service}") String sh) {
+        this.serviceHost = sh;
+        this.restTemplate = restTemplate;
+    }
 
- public User getAuthenticatedUser() {
-  URI url = URI.create(String.format("http://%s/uaa/v1/me", serviceHost));
-  RequestEntity<Void> request = get(url).header(HttpHeaders.CONTENT_TYPE,
-   APPLICATION_JSON_VALUE).build();
-  return restTemplate.exchange(request, User.class).getBody();
- }
+    public User getAuthenticatedUser() {
+        URI url = URI.create(String.format("http://%s/uaa/v1/me", serviceHost));
+        RequestEntity<Void> request = get(url).header(HttpHeaders.CONTENT_TYPE,
+                APPLICATION_JSON_VALUE).build();
+        return restTemplate.exchange(request, User.class).getBody();
+    }
 }

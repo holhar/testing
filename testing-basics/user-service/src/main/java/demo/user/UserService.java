@@ -9,16 +9,16 @@ import java.util.Optional;
 @Service
 public class UserService {
 
- private final UserRepository userRepository;
+    private final UserRepository userRepository;
 
- @Autowired
- public UserService(UserRepository userRepository) {
-  this.userRepository = userRepository;
- }
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
- public User getUserByPrincipal(Principal principal) {
-  // <1>
-  return Optional.ofNullable(principal)
-   .map(p -> userRepository.findUserByUsername(p.getName())).orElse(null);
- }
+    public User getUserByPrincipal(Principal principal) {
+        // <1>
+        return Optional.ofNullable(principal)
+                .map(p -> userRepository.findUserByUsername(p.getName())).orElse(null);
+    }
 }

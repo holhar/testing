@@ -6,10 +6,10 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface AccountRepository extends
- PagingAndSortingRepository<Account, Long> {
+        PagingAndSortingRepository<Account, Long> {
 
- List<Account> findAccountsByUsername(@Param("username") String username);
+    List<Account> findAccountsByUsername(@Param("username") String username);
 
- Account findAccountByAccountNumber(
-  @Param("accountNumber") AccountNumber accountNumber);
+    Account findAccountByAccountNumber(
+            @Param("accountNumber") AccountNumber accountNumber);
 }
